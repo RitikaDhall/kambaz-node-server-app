@@ -26,7 +26,7 @@ app.use(
 const sessionOptions = {
     secret: process.env.SESSION_SECRET || "kambaz",
     resave: false,
-    saveUnitialized: false,
+    saveUninitialized: false,
 };
 if (process.env.NODE_ENV !== "development") {
     sessionOptions.proxy = true;

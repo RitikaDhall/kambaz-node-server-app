@@ -3,7 +3,7 @@ import * as enrollmentsDao from "./dao.js";
 export default function EnrollmentRoutes(app) {
 
     app.get("/api/enrollments", async (req, res) => {
-        const enrollments = enrollmentsDao.getAllEnrollments();
+        const enrollments = await enrollmentsDao.getAllEnrollments();
         res.send(enrollments);
     });
 
@@ -15,8 +15,8 @@ export default function EnrollmentRoutes(app) {
 
     app.delete("/api/enrollments/:userId/:courseId", async (req, res) => {
         const { userId, courseId } = req.params;
-        const status = await enrollmentsDao.unenrollUserInCourse(userId, courseId);
+        const status = await enrollmentsDao.unenrollUserFromCourse(userId, courseId);
         res.send(status);
-    })
+    });
 
 }

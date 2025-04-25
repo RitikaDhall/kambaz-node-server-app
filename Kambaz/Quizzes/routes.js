@@ -2,15 +2,6 @@ import * as dao from "./dao.js";
 import * as questionDao from "../Questions/dao.js";
 
 export default function QuizRoutes(app) {
-    app.get("/api/quizzes/:qid", async (req, res) => {
-        let { qid } = req.params;
-        const quiz = await dao.findQuizById(qid);
-        if (quiz) {
-            res.json(quiz);
-        } else {
-            res.status(401).json({ message: "Quiz not found." });
-        }
-    }) // check if this is being used then delete it
 
     app.delete("/api/quizzes/:quizId", async (req, res) => {
         const { quizId } = req.params;

@@ -92,6 +92,7 @@ export default function UserRoutes(app) {
     app.post("/api/users/profile", profile);
 
     const findCoursesForUser = async (req, res) => {
+        console.log(req.session);
         const currentUser = req.session["currentUser"];
         if (!currentUser) {
             res.sendStatus(401);

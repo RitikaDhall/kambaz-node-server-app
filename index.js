@@ -43,6 +43,10 @@ app.use(session(sessionOptions));
 
 app.use(express.json());
 
+app.get("/ping", (req, res) => {
+    res.status(200).send("pong");
+});
+
 Lab5(app);
 Hello(app);
 
